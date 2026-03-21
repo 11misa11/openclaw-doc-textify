@@ -1,0 +1,46 @@
+{
+  "name": "openclaw-doc-textify",
+  "version": "0.1.0",
+  "description": "OpenClaw系ドキュメントを読みやすい text / markdown に変換する CLI ツール",
+  "type": "module",
+  "main": "dist/cli/index.js",
+  "bin": {
+    "textify": "dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli/index.ts",
+    "textify": "tsx src/cli/index.ts",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:11misa11/openclaw-doc-textify.git"
+  },
+  "keywords": [
+    "openclaw",
+    "textify",
+    "markdown",
+    "cli"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "cheerio": "^1.2.0",
+    "commander": "^14.0.3",
+    "jsdom": "^29.0.1",
+    "turndown": "^7.2.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^28.0.1",
+    "@types/node": "^25.5.0",
+    "@types/turndown": "^5.0.6",
+    "eslint": "^10.1.0",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
+  }
+}

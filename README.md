@@ -1,18 +1,62 @@
 # openclaw-doc-textify
 
-OpenClaw を使って、Slack 経由で Notion 内ドキュメントのテキスト化・整理を行うためのプロジェクト。
+OpenClaw 系ドキュメントや一般的な HTML を、読みやすい **プレーンテキスト** と **Markdown** に変換する CLI ツールです。
 
-## 現在の内容
+## Phase 0 の内容
 
-- `docs/product/background.md` — 背景・目的
-- `docs/product/user-scenarios.md` — ユーザーシナリオ
-- `docs/ideas.md` — アイデア整理
-- `docs/tech-stack.md` — 技術スタック
-- `docs/requirements.md` — 要件定義
+- 単一 URL の取得
+- ローカル HTML ファイルの入力
+- Readability ベースの本文抽出
+- `nav` / `footer` / `script` などのノイズ除去
+- `.md` / `.txt` 出力
+- 出力ファイルへの基本メタデータ付与
+  - `sourceType`
+  - `source`
+  - `fetchedAt`
 
-## 次のステップ
+## セットアップ
 
-- Slack 前提へのドキュメント更新
-- architecture.md の作成
-- tasks.md の作成
-- 実装リポジトリとして初期セットアップ
+```bash
+npm install
+```
+
+## 使い方
+
+### URL から変換
+
+```bash
+npm run textify -- url https://docs.openclaw.ai/ --out ./output
+```
+
+### ローカルファイルから変換
+
+```bash
+npm run textify -- file ./test/fixtures/sample.html --out ./output
+```
+
+## 出力例
+
+- `output/<slug>.md`
+- `output/<slug>.txt`
+
+Markdown にはタイトルとメタデータを先頭に付けます。Text には軽いヘッダ情報を付けます。
+
+## テスト
+
+```bash
+npm test
+npm run build
+```
+
+## 軽検証済み URL
+
+- `https://docs.openclaw.ai/`
+- `https://docs.openclaw.ai/start/getting-started`
+
+## 次の予定
+
+- 複数 URL のクロール
+- sitemap 対応
+- 重複排除
+- index 生成
+- 設定ファイル対応
